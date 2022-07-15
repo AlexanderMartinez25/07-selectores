@@ -1,1 +1,22 @@
-<p>selector-page works!</p>
+<h1 class="mt-5">Selectores animados</h1>
+<hr>
+
+<form [formGroup]="miFormulario" (ngSubmit)="guardar">
+    <div class="row">
+        <div class="col">
+            <label class="form-label">Continente:</label>
+            <select class="form-control" formControlName="region">
+                <option value="">-- Seleccione continente --</option>
+                <option value="1">América</option>
+            </select>
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary float-end">Guardar</button>
+        </div>
+    </div>
+</form>
+
+
+<h3>Formulario</h3>
+<pre>Valid: {{miFormulario.valid}}</pre>
+<pre>{{miFormulario.value | json}}</pre>
