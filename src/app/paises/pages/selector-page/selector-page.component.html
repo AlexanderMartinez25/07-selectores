@@ -20,6 +20,16 @@
                 <option *ngFor="let pais of paises" [value]="pais.cca3">{{pais.name.common}}</option>
             </select>
         </div>
+
+
+        <!-- fronteras -->
+        <div class="col-12 mb-3">
+            <label class="form-label">País:</label>
+            <select class="form-control" formControlName="frontera">
+                <option value="">-- Seleccione frontera --</option>
+                <option *ngFor="let frontera of fronteras" [value]="frontera">{{frontera}}</option>
+            </select>
+        </div>
         <div>
             <button type="submit" class="btn btn-primary float-end">Guardar</button>
         </div>

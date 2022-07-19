@@ -14,12 +14,14 @@ export class SelectorPageComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
     region: ['', Validators.required],
-    pais: ['', Validators.required]
+    pais: ['', Validators.required],
+    frontera: ['', Validators.required]
   })
 
   //lenar selectores
   regiones: string[] = [];
   paises: PaisSmall[] = [];
+  fronteras: string[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -37,11 +39,17 @@ export class SelectorPageComponent implements OnInit {
           this.miFormulario.get('pais')?.reset('')
         }),
         // hacemos consulta directa
-        switchMap(region => this.ps.getPaisesByRegion(region))
+        switchMap(region => this.ps.getPaisesByRegion(region)),
       )
       // obtenemos respuesta de la consulta directa
       .subscribe(paises => {
         this.paises = paises;
+      })
+
+    // cuando cambie el país
+    this.miFormulario.get('pais')?.valueChanges
+      .subscribe(fronteras => {
+        console.log(fronteras);
       })
   }
 
