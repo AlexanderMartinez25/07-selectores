@@ -31,7 +31,7 @@ export class PaisesService {
       return of(null)
     }
 
-    const url: string = `${this._baseUrl}/alpha/${code}`;
+    const url: string = `https://restcountries.com/v2/alpha/${code}`;
     return this.http.get<Pais>(url);
   }
 }
